@@ -458,6 +458,9 @@ fun HelpScreen(onDone: () -> Unit) {
             Text(text = stringResource(id = R.string.help_4_step),
                 textAlign = TextAlign.Justify)
             Spacer(modifier = Modifier.size(8.dp))
+            Text(text = stringResource(id = R.string.help_4_step_2),
+                textAlign = TextAlign.Justify)
+            Spacer(modifier = Modifier.size(8.dp))
             Image(painter = painterResource(id = R.drawable.img_help_33),
                 contentDescription = "Second Step",
                 modifier = Modifier.fillMaxWidth(),
@@ -492,7 +495,7 @@ fun HelpScreen(onDone: () -> Unit) {
             Text(text = stringResource(id = R.string.help_7_step),
                 textAlign = TextAlign.Justify)
             Spacer(modifier = Modifier.size(8.dp))
-            Image(painter = painterResource(id = R.drawable.img_help_last),
+            Image(painter = painterResource(id = R.drawable.img_help_link),
                 contentDescription = "Next Step",
                 modifier = Modifier.fillMaxWidth(),
                 contentScale = ContentScale.FillWidth)

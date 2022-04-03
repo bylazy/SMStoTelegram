@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">SMS to Telegram</string>
+    <string name="greeting_message">The App needs permission to access SMS for normal operation. \n\nThe App processes and forwards only those messages that match the filter specified by the user. \n\nThe recipient of the forwarded messages is only the Telegram bot specified by the user when setting up.</string>
+    <string name="warning">The App can\'t function without permissions</string>
+    <string name="grant">Grant</string>
+    <string name="datastore">datastore</string>
+    <string name="channel_name">SMS to Telegram</string>
+    <string name="channel_description">Exception reports</string>,
+    <string name="security_warning_1">This Application is designed to forward incoming SMS messages using Telegram Bot. The Bot specified by the User sends messages received only from the recipients selected by the User and corresponding to the specified filter.</string>
+    <string name="security_warning_2">The forwarded messages may contain important and/or confidential information, and the User, by continuing to use this Application, understands and accepts that He is fully responsible for the leakage of this information and any consequences thereof.</string>
+    <string name="security_warning_3">Thus, under no circumstances will the Author of the Application be liable for any incidental, special circumstances, indirect, direct or consequential damages or lost profits, business interruption, loss of business opportunity or goodwill, for any claims for indirect, special circumstances damages or compulsory damages, for claims of third parties or for any indirect or consequential damages or related costs that may arise in connection with the installation or use of the Application, including due to shortcomings in the Application, as well as for the loss or inaccuracy of data of any kind.</string>
+    <string name="delete_prompt">If this Application is not installed by you or you do not fully understand its purpose, you should remove it immediately</string>
+    <string name="link">https://api.telegram.org/bot(your Bot API token)/sendMessage?chat_id=@(your channel link)&amp;text=test</string>
+    <string name="help_1_step">First, you need to download and install the Telegram Desktop application</string>
+    <string name="help_2_step">In the Telegram Desktop application, find the BotFather service</string>
+    <string name="help_2_step_2">Enter the /newbot command to create a new bot. Select a name and a username. In response, the service will send information about the created bot, including a token for remote access. Keep this token in a safe place and copy if for further steps. Also, this token must be entered in the Bot Access Token field of this application. This completes the first part of the Application setup</string>
+    <string name="help_3_step">The next step is in the same application. Create a channel, choose a name for it</string>
+    <string name="help_4_step">At this stage, the channel should remain public. But for security reasons, once the setup is done, the channel has to be private</string>
+    <string name="help_4_step_2">To access this channel remotely, you need to specify an unique link and remember or save it for the next steps</string>
+    <string name="help_5_step">The next step is to set a previously created Bot as the administrator of the new channel</string>
+    <string name="help_6_step">For the next step, you need to open a browser, copy this link:</string>
+    <string name="help_7_step">Insert it into the address field and replace (your Bot API token) and (your channel link) with the values you got in the previous steps</string>
+    <string name="help_8_step">Open the page using the received link. If the previous steps are completed correctly, a test message will be sent to Telegram, and in the browser you will see a response from the Telegram API. If the message does not arrive, and the response contains an indication of an error, you need to check if the token and the channel name are correct</string>
+    <string name="help_9_step">The service response contains the channel ID, copy it and paste it into the Channel ID field of this application. Don\'t forget the \'-\' sign. This completes the setup of the application, specify which messages you want to forward, click Start and the Application will start forwarding</string>
+    <string name="help_10_step">Don\'t forget to make the channel private! If you want to share forwarded messages with someone, just invite them to connect to the channel.</string>
+    <string name="help_11_step">Done</string>
+</resources>

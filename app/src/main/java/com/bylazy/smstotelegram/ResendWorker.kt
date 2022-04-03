@@ -86,10 +86,8 @@ class ResendWorker(private val ctx: Context, workerParameters: WorkerParameters)
         //Perform request
         return try {
             client.get<HttpResponse>(requestUrl)
-            //todo - save
             Result.success()
         } catch (e: Exception) {
-
             //Notify when failed
             notify(e.message?:"Message forwarding error: Unknown")
             Result.failure()
@@ -136,7 +134,6 @@ class ResendWorker(private val ctx: Context, workerParameters: WorkerParameters)
             .setAutoCancel(true)
 
         //Show notification
-        //todo - check permission
         with(NotificationManagerCompat.from(applicationContext)) {
             notify((0..1000).random(), builder.build())
         }

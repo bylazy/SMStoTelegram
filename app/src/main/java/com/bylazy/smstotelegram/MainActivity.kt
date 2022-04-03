@@ -209,7 +209,7 @@ fun HomeAppScreen(navController: NavController,
 
     val currentState by mainViewModel.currentState
     val messageToShow by mainViewModel.messageToShow
-    val showInitialWarning by mainViewModel.showInitialWarning
+    val showInitialWarning by mainViewModel.shouldShowWarning.collectAsState(initial = false)
 
     val scaffoldState = rememberScaffoldState()
     val scrollState = rememberScrollState()
@@ -226,7 +226,7 @@ fun HomeAppScreen(navController: NavController,
     LaunchedEffect(key1 = showInitialWarning) {
         if (showInitialWarning) {
             navController.navigate(INFO)
-            mainViewModel.initialWarningShown()
+            mainViewModel.warningShown()
         }
     }
 

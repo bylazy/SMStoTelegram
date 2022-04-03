@@ -17,7 +17,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.launch
 import java.net.UnknownHostException
 
@@ -29,10 +28,11 @@ class MainViewModel(private val app: Application): AndroidViewModel(app) {
 
     val messageToShow = mutableStateOf("")
 
-    val showInitialWarning = mutableStateOf(false)
+    val shouldShowWarning = app.datastore.data.map {
+        it[showInitialWarningKey]?:true
+    }
 
-    fun initialWarningShown() {
-        showInitialWarning.value = false
+    fun warningShown() {
         viewModelScope.launch {
             app.datastore.edit {
                 it[showInitialWarningKey] = false
@@ -190,9 +190,6 @@ class MainViewModel(private val app: Application): AndroidViewModel(app) {
             homeState.collect {
                 currentState.value = it
             }
-            app.datastore.data.take(1).collect {
-                showInitialWarning.value = it[showInitialWarningKey]?:true
-            }
             checkStatus()
         }
 
@@ -205,7 +202,7 @@ class MainViewModel(private val app: Application): AndroidViewModel(app) {
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED -> true
                 else -> false
             }
-            delay(1000) //todo - refactor
+            delay(1000)
             currentState.value = currentState.value.copy(active = status)
             app.datastore.edit {
                 it[HomeState.ACTIVE] = currentState.value.active

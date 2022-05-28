@@ -144,7 +144,7 @@ fun ConvScreen(navController: NavController, mainViewModel: MainViewModel) {
     if (isLoading) CircularProgressIndicator()
     else {
         Column(modifier = Modifier.padding(8.dp)) {
-            Text(text = "Select phone number:")
+            Text(text = "Выбери номер телефона:")
             Spacer(modifier = Modifier.size(4.dp))
             Divider()
             Spacer(modifier = Modifier.size(4.dp))
@@ -160,7 +160,7 @@ fun ConvScreen(navController: NavController, mainViewModel: MainViewModel) {
             Spacer(modifier = Modifier.size(4.dp))
             Row {
                 Button(onClick = { navController.popBackStack() }) {
-                    Text(text = "Cancel")
+                    Text(text = "Отмена")
                 }
                 Spacer(modifier = Modifier
                     .size(8.dp)
@@ -242,7 +242,7 @@ fun HomeAppScreen(navController: NavController,
                     shape = RoundedCornerShape(50)) {
                     Icon(painter = painterResource(id = R.drawable.alert_circle), contentDescription = "Info")
                     Spacer(modifier = Modifier.size(8.dp))
-                    Text(text = "Info")
+                    Text(text = "Инфо")
                 }
                 Spacer(modifier = Modifier
                     .size(12.dp)
@@ -251,7 +251,7 @@ fun HomeAppScreen(navController: NavController,
                     shape = RoundedCornerShape(50)) {
                     Icon(painter = painterResource(id = R.drawable.help_circle), contentDescription = "Help")
                     Spacer(modifier = Modifier.size(8.dp))
-                    Text(text = "Help")
+                    Text(text = "Помощь")
                 }
             }
         }}) {
@@ -261,7 +261,7 @@ fun HomeAppScreen(navController: NavController,
             TextField(value = currentState.phone, onValueChange = {mainViewModel
                 .updateCurrentState(currentState.copy(phone = it))},
                 modifier = Modifier.fillMaxWidth(),
-                label = { Text(text = "From:")},
+                label = { Text(text = "От кого:")},
                 enabled = !currentState.sendall,
                 trailingIcon = {Icon(imageVector = Icons.Default.Add,
                     contentDescription = "Select",
@@ -271,7 +271,7 @@ fun HomeAppScreen(navController: NavController,
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
                 keyboardActions = KeyboardActions(onDone = {filterFocusRequester.requestFocus()})
             )
-            Text(text = "Enter or select a phone number. You can enter multiple numbers separated by spaces.",
+            Text(text = "Введи или выбери номер (номера) телефонов. Можно указать несколько через пробел.",
                 style = MaterialTheme.typography.body2)
             Spacer(modifier = Modifier.size(4.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -279,7 +279,7 @@ fun HomeAppScreen(navController: NavController,
                     onCheckedChange = {mainViewModel
                         .updateCurrentState(currentState.copy(sendall = !currentState.sendall))})
                 Spacer(modifier = Modifier.size(8.dp))
-                Text(text = "Forward all incoming SMS")
+                Text(text = "Пересылать все входящие СМС")
             }
             Spacer(modifier = Modifier.size(4.dp))
             TextField(value = currentState.filter, onValueChange = {mainViewModel
@@ -287,7 +287,7 @@ fun HomeAppScreen(navController: NavController,
                 modifier = Modifier
                     .fillMaxWidth()
                     .focusRequester(filterFocusRequester),
-                label = { Text(text = "Text filter:")},
+                label = { Text(text = "Текстовый фильтр:")},
                 trailingIcon = {Icon(imageVector = Icons.Default.Clear,
                     contentDescription = "Clear",
                     modifier = Modifier.clickable { mainViewModel
@@ -295,7 +295,7 @@ fun HomeAppScreen(navController: NavController,
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
                 keyboardActions = KeyboardActions(onDone = {prefixFocusRequester.requestFocus()})
             )
-            Text(text = "Forward only messages containing the specified text",
+            Text(text = "Пересылаются только те сообщения, которые содержат указанный текст",
                 style = MaterialTheme.typography.body2)
             Spacer(modifier = Modifier.size(4.dp))
             TextField(value = currentState.prefix, onValueChange = {mainViewModel
@@ -303,7 +303,7 @@ fun HomeAppScreen(navController: NavController,
                 modifier = Modifier
                     .fillMaxWidth()
                     .focusRequester(prefixFocusRequester),
-                label = { Text(text = "Prefix:")},
+                label = { Text(text = "Префикс:")},
                 trailingIcon = {Icon(imageVector = Icons.Default.Clear,
                     contentDescription = "Clear",
                     modifier = Modifier.clickable { mainViewModel
@@ -311,7 +311,7 @@ fun HomeAppScreen(navController: NavController,
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
                 keyboardActions = KeyboardActions(onDone = {botFocusRequester.requestFocus()})
             )
-            Text(text = "Add prefix to forwarded messages",
+            Text(text = "Можно добавть префикс к перенаправленным сообщениям",
                 style = MaterialTheme.typography.body2)
             Spacer(modifier = Modifier.size(12.dp))
             Divider()
@@ -321,7 +321,7 @@ fun HomeAppScreen(navController: NavController,
                 modifier = Modifier
                     .fillMaxWidth()
                     .focusRequester(botFocusRequester),
-                label = { Text(text = "Bot access token:")},
+                label = { Text(text = "Токен бота:")},
                 trailingIcon = {Icon(painter = painterResource(id = R.drawable.ic_paste),
                     contentDescription = "Paste",
                     modifier = Modifier.clickable {
@@ -334,7 +334,7 @@ fun HomeAppScreen(navController: NavController,
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
                 keyboardActions = KeyboardActions(onDone = {channelFocusRequester.requestFocus()})
             )
-            Text(text = "Forward messages via that Bot. Go to the Help section to find out how to get your token",
+            Text(text = "Сообщения пересылаются через этого бота. Смотри _Помощь_ чтобы узнать, как получить своего бота",
                 style = MaterialTheme.typography.body2)
             Spacer(modifier = Modifier.size(4.dp))
             TextField(value = currentState.channel, onValueChange = {mainViewModel
@@ -342,7 +342,7 @@ fun HomeAppScreen(navController: NavController,
                 modifier = Modifier
                     .fillMaxWidth()
                     .focusRequester(channelFocusRequester),
-                label = { Text(text = "Telegram channel:")},
+                label = { Text(text = "ID канала:")},
                 trailingIcon = {Icon(painter = painterResource(id = R.drawable.ic_paste),
                     contentDescription = "Paste",
                     modifier = Modifier.clickable {
@@ -355,12 +355,12 @@ fun HomeAppScreen(navController: NavController,
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
                 keyboardActions = KeyboardActions(onDone = {focusManager.clearFocus()})
             )
-            Text(text = "Channel to forward messages to",
+            Text(text = "Канал, в который бот перенаправит СМС",
                 style = MaterialTheme.typography.body2)
             Spacer(modifier = Modifier.size(4.dp))
             if (currentState.tested) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "Bot tested successfully")
+                    Text(text = "Бот проверен, все ОК")
                     Spacer(modifier = Modifier
                         .size(8.dp)
                         .weight(1f))
@@ -370,7 +370,7 @@ fun HomeAppScreen(navController: NavController,
                 Button(onClick = { mainViewModel.testBot() },
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(50)) {
-                    Text("Send Test Message")
+                    Text("Отправить тестовое сообщение")
                 }
             }
             Spacer(modifier = Modifier.size(12.dp))
@@ -384,7 +384,7 @@ fun HomeAppScreen(navController: NavController,
                     contentDescription = "Start Stop",
                     tint = if (currentState.active) Color.Red else Color.Green)
                 Spacer(modifier = Modifier.size(8.dp))
-                Text(text = if (currentState.active) "Stop" else "Start")
+                Text(text = if (currentState.active) "Стоп" else "Старт")
             }
             Spacer(modifier = Modifier.size(54.dp))
         }
@@ -404,7 +404,7 @@ fun HelpScreen(onDone: () -> Unit) {
                 Icon(painter = painterResource(id = R.drawable.help_circle),
                     contentDescription = "Help", tint = Color.Green)
                 Spacer(modifier = Modifier.weight(1f))
-                Text(text = "Help",
+                Text(text = "Помощь",
                     style = MaterialTheme.typography.h5)
                 Spacer(modifier = Modifier.weight(1f))
                 Icon(painter = painterResource(id = R.drawable.help_circle),
@@ -538,7 +538,7 @@ fun InfoScreen(onDone: () -> Unit) {
             Icon(painter = painterResource(id = R.drawable.alert_circle),
                 contentDescription = "Warning", tint = Color.Red)
             Spacer(modifier = Modifier.weight(1f))
-            Text(text = "Security warning!",
+            Text(text = "Важная информация!",
                 style = MaterialTheme.typography.h5)
             Spacer(modifier = Modifier.weight(1f))
             Icon(painter = painterResource(id = R.drawable.alert_circle),

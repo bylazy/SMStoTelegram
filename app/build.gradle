@@ -5,6 +5,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\mailo\\Documents\\nsks\\nsks.jks')
+            storePassword pass
+            keyAlias 'ns_stt_key'
+            keyPassword pass
+        }
+    }
     compileSdk 31
 
     defaultConfig {
@@ -22,8 +30,9 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
